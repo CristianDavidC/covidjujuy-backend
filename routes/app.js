@@ -11,6 +11,7 @@ app.get('/', (req, res, next) => {
         ok: true,
         mensaje: 'Petición realizada correctamente'
     })
+    // res.sendFile(__dirname + '/index.html')
 })
 
 // Para que se pueda usar "app" fuera de este archivo

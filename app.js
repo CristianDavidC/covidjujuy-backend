@@ -37,7 +37,6 @@ const uploadRoutes = require('./routes/upload');
 const imagenesRoutes = require('./routes/imagenes');
 
 const loginRoutes = require('./routes/login');
-const productsRouter = require('./routes/products');
 const rolRouter = require('./routes/rol');
 const users = require('./routes/users');
 
@@ -52,12 +51,10 @@ app.use('/usuario', usuarioRoutes);
 app.use('/hospital', hospitalRoutes);
 app.use('/medico', medicoRoutes);
 app.use('/busqueda', busquedaRoutes);
-app.use('/upload', uploadRoutes);
+app.use('/api/upload', uploadRoutes);
 app.use('/img', imagenesRoutes);
-
 app.use('/login', loginRoutes);
 
-app.use('/api/products', productsRouter);
 app.use('/api/usuarios', users);
 app.use('/api/rol', rolRouter);
 

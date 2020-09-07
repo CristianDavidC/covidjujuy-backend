@@ -14,6 +14,50 @@ var Hospital = require('../models/hospital');
 // Middleware
 app.use(fileUpload());
 
+app.post('/', (req, res) => {
+
+    if (!req.files) {
+        return res.status(400).json({
+               ok: false,
+               mensaje: 'No seleccionó nada',
+               errors: { message: 'Debe seleccionar un archivo' }
+           })
+    }
+
+    
+    // Obtener el archivo
+    var file = req.files.archivo;
+    
+    res.status(200).json({
+        success: true,
+        mensaje: 'Archivo subido correctamente'
+    });
+
+
+    // Mover el archivo
+    // var path = `./uploads/imports/${file.name}`;
+
+    // file.mv(path, err => {
+    //     if (err) {
+    //         res.status(500).json({
+    //             ok: false,
+    //             mensaje: 'Error al mover el archivo',
+    //             errors: err
+    //         });
+    //     }
+
+    //     // Si existe, elimina el archivo anterior
+    //     if (fs.existsSync(path)) {
+    //         fs.unlink(path);
+    //     }
+
+    //     res.status(200).json({
+    //         success: true,
+    //         mensaje: 'Archivo subido correctamente',
+    //     })
+        
+    // });
+});
 
 
 app.put('/:tipo/:id', (req, res, next) => {
